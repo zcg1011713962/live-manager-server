@@ -1,0 +1,40 @@
+server:
+  port: 9000
+logging:
+  level:
+    root: INFO                     # 设置全局日志级别
+    com.hs: DEBUG                  # 指定包的日志级别
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"  # 控制台日志格式
+  file:
+    path: logs
+# 配置 MyBatis-Plus
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml  # MyBatis Mapper XML 文件位置
+  type-aliases-package: com.hs.db.entity   # 实体类包路径
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      # 开启下划线转驼峰命名规则
+      column-underline: true
+spring:
+  main:
+    web-application-type: reactive
+  datasource:
+    url: jdbc:mysql://192.168.127.131:3306/live_manager
+    username: root
+    password: 315b40a2e09e3cd2
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10  # 数据库连接池大小，根据需要调整
+  data:
+    redis:
+      host: 192.168.127.131
+      port: 6379               # Redis 端口
+      password: "xingC99"      # Redis 密码（如果没有密码可以留空）
+      database: 0              # 使用的数据库索引
+
+
+
+

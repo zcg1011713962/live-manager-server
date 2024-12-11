@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hs.db.mapper.UserMapper">
+    <insert id="insertBatchUsers" parameterType="java.util.List">
+        INSERT INTO user (user_name, user_type, real_name, phone_num, email) VALUES
+        <foreach collection="users" item="user" separator=",">
+            (#{user.userName}, #{user.userType},#{user.realName},#{user.phoneNum},#{user.email})
+        </foreach>
+    </insert>
+
+    <select id="selectUserIds" parameterType="java.util.List" resultType="java.lang.Long">
+        SELECT * FROM user WHERE user_name IN
+        <foreach collection="list" item="user" open="(" separator="," close=")">
+            #{user.userName}
+        </foreach>
+    </select>
+
+</mapper>

@@ -75,11 +75,11 @@ public class WsClientServiceImpl implements WsClientService {
                             JSONObject json = JSONUtil.parseObj(message);
                             String statusCode = json.getStr("statusCode");
                             if(String.valueOf(200).equals(statusCode)){
-                                String notice = json.getStr("notice");
-                                Object data = json.get("data");
+                                JSONObject data = JSONUtil.parseObj(json.get("data"));
+                                String command = data.getStr("command");
                                 if("subscribeNotice".equals(command)){
-                                    JSONArray p = JSONUtil.parseArray(JSONUtil.parseObj(data).get("data"));
-                                    log.info("Received message: {}", json);
+                                    JSONArray p = JSONUtil.parseArray(data.get("data"));
+                                    log.info("订阅成功: {}", p);
                                     return;
                                 }
                             }

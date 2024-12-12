@@ -12027,3 +12027,31 @@ Original Stack Trace:
 2024-12-11T17:37:03.034+08:00  INFO 39972 --- [reactor-http-nio-2] c.hs.service.impl.WsClientServiceImpl    : 连接websocket地址:ws://ws-apiext.nimo.tv/websocket?do=comm&roomId=32429581&appId=tmp_nS4HrIbi2F&iat=1733909823&sToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb29tSWQiOiIzMjQyOTU4MSIsImFwcElkIjoidG1wX25TNEhySWJpMkYiLCJpYXQiOjE3MzM5MDk4MjMsImV4cCI6MTczMzkxMDEyM30.bQTcUjaz-fnZFEZT9Pvzp9ffQJjGEieBLljNPUUJfRM
 2024-12-11T17:38:09.046+08:00  INFO 39972 --- [reactor-http-nio-2] c.hs.service.impl.WsClientServiceImpl    : Received message: {"data":{"= ":"d22c354f1b36477cae19dcd128f97754","command":"subscribeNotice","data":["getSendItemNotice"],"failedList":[""],"msg":"sucess","ret":0},"notice":"command","statusCode":200,"statusMsg":""}
 
+2024-12-11T19:05:43.016+08:00  INFO 39912 --- [main] com.hs.Main                              : Starting Main using Java 17.0.12 with PID 39912 (D:\coding\live-manager-server\web\target\classes started by joe in D:\coding\live-manager-server)
+2024-12-11T19:05:43.017+08:00 DEBUG 39912 --- [main] com.hs.Main                              : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-11T19:05:43.017+08:00  INFO 39912 --- [main] com.hs.Main                              : No active profile set, falling back to 1 default profile: "default"
+2024-12-11T19:05:43.340+08:00  INFO 39912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-12-11T19:05:43.342+08:00  INFO 39912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-12-11T19:05:43.360+08:00  INFO 39912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2024-12-11T19:05:43.776+08:00  WARN 39912 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.User".
+2024-12-11T19:05:43.778+08:00  WARN 39912 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.User ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-11T19:05:43.818+08:00  WARN 39912 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.GiftLog".
+2024-12-11T19:05:43.818+08:00  WARN 39912 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.GiftLog ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-11T19:05:44.343+08:00  INFO 39912 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 9000 (http)
+2024-12-11T19:05:44.348+08:00  INFO 39912 --- [main] com.hs.Main                              : Started Main in 1.632 seconds (process running for 2.04)
+2024-12-11T19:05:52.803+08:00  INFO 39912 --- [reactor-http-nio-2] c.hs.service.impl.WsClientServiceImpl    : 连接websocket地址:ws://ws-apiext.nimo.tv/websocket?do=comm&roomId=32429581&appId=tmp_nS4HrIbi2F&iat=1733915152&sToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb29tSWQiOiIzMjQyOTU4MSIsImFwcElkIjoidG1wX25TNEhySWJpMkYiLCJpYXQiOjE3MzM5MTUxNTIsImV4cCI6MTczMzkxNTQ1Mn0.tPNXzyLuEMhC_jBYKkukRYrZTjNB9NVUcZrdKDJbBiA
+2024-12-11T19:07:13.899+08:00  INFO 39912 --- [reactor-http-nio-2] c.hs.service.impl.WsClientServiceImpl    : Received message: {"data":{"= ":"a0a0229e2a79494ea30287065580ebc2","command":"subscribeNotice","data":["getSendItemNotice"],"failedList":[""],"msg":"sucess","ret":0},"notice":"command","statusCode":200,"statusMsg":""}
+2024-12-11T19:07:21.930+08:00  INFO 10092 --- [main] com.hs.Main                              : Starting Main using Java 17.0.12 with PID 10092 (D:\coding\live-manager-server\web\target\classes started by joe in D:\coding\live-manager-server)
+2024-12-11T19:07:21.933+08:00 DEBUG 10092 --- [main] com.hs.Main                              : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-11T19:07:21.933+08:00  INFO 10092 --- [main] com.hs.Main                              : No active profile set, falling back to 1 default profile: "default"
+2024-12-11T19:07:22.359+08:00  INFO 10092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-12-11T19:07:22.360+08:00  INFO 10092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-12-11T19:07:22.378+08:00  INFO 10092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2024-12-11T19:07:22.776+08:00  WARN 10092 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.User".
+2024-12-11T19:07:22.779+08:00  WARN 10092 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.User ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-11T19:07:22.823+08:00  WARN 10092 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.GiftLog".
+2024-12-11T19:07:22.823+08:00  WARN 10092 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.GiftLog ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-11T19:07:23.323+08:00  INFO 10092 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 9000 (http)
+2024-12-11T19:07:23.328+08:00  INFO 10092 --- [main] com.hs.Main                              : Started Main in 1.823 seconds (process running for 2.358)
+2024-12-11T19:07:26.511+08:00  INFO 10092 --- [reactor-http-nio-2] c.hs.service.impl.WsClientServiceImpl    : 连接websocket地址:ws://ws-apiext.nimo.tv/websocket?do=comm&roomId=32429581&appId=tmp_nS4HrIbi2F&iat=1733915246&sToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb29tSWQiOiIzMjQyOTU4MSIsImFwcElkIjoidG1wX25TNEhySWJpMkYiLCJpYXQiOjE3MzM5MTUyNDYsImV4cCI6MTczMzkxNTU0Nn0.W6N7dfqFbHHZWoMWrlxColq18eUcksKMyAJGn090iBs
+2024-12-11T19:07:27.647+08:00  INFO 10092 --- [reactor-http-nio-2] c.hs.service.impl.WsClientServiceImpl    : 订阅成功: ["getSendItemNotice"]

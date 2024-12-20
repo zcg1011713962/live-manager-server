@@ -13,7 +13,7 @@ public class GiftLogBO {
     // 主播昵称
     private String anchorName;
     // 送礼人唯一ID
-    private String senderId;
+    private Long senderId;
     // 送礼人昵称
     private String senderName;
     // 发言人头像
@@ -25,11 +25,13 @@ public class GiftLogBO {
     // 送礼连击数
     private int comboCount;
     // 扣费策略 (1002-钻石, 1003-金币, 1018-免费背包礼物, 3008-金豆)
-    private String chargePolicy;
+    private int chargePolicy;
     // 总支付
-    private String totalPayment;
+    private Double totalPayment;
     // 主播总获得宝石
-    private String totalGems;
+    private Double totalGems;
     // 发送时间戳 (秒)
-    private String sentTimestamp;
+    private Long sentTimestamp;
+    // 活动ID
+    private Long activityId;
 }

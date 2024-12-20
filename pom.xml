@@ -41,7 +41,64 @@
     </dependencies>
     <!--解决子模块中引用的父工程的版本变量,先用父类打包一次，子类生成flattened-pom子类即可打包-->
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/*.yml</exclude>
+                    <exclude>**/mapper/*</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <plugins>
+            <!-- Maven Dependency Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.1</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-jars</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <!-- 目标目录 -->
+                            <outputDirectory>${project.basedir}/lib</outputDirectory>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.hs</groupId>
+                                    <artifactId>common</artifactId>
+                                    <version>${revision}</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.hs</groupId>
+                                    <artifactId>data</artifactId>
+                                    <version>${revision}</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.hs</groupId>
+                                    <artifactId>web</artifactId>
+                                    <version>${revision}</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

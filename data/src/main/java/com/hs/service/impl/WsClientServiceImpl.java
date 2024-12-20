@@ -4,10 +4,15 @@ import cn.hutool.json.JSON;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.hs.entity.bo.GiftInfoBo;
+import com.hs.entity.bo.GiftLogBO;
+import com.hs.service.GiftLogService;
 import com.hs.service.WsClientService;
 import com.hs.util.JwtUtil;
 import io.netty.handler.codec.http.websocketx.WebSocketClientHandshakeException;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.socket.HandshakeInfo;
 import org.springframework.web.reactive.socket.WebSocketMessage;
@@ -24,6 +29,13 @@ import java.util.UUID;
 @Service
 public class WsClientServiceImpl implements WsClientService {
 
+    @Autowired
+    private GiftLogService giftLogService;
+
+    @PostConstruct
+    public void init() {
+        connect();
+    }
 
     @Override
     public void connect() {
@@ -62,8 +74,11 @@ public class WsClientServiceImpl implements WsClientService {
 
             // 2. 定时发送 ping 消息
             Mono<Void> sendPing = session.send(
-                    Flux.interval(Duration.ofSeconds(15)) // 每 30 秒发送一次
-                            .map(interval -> session.textMessage(pingMessage))
+                    Flux.interval(Duration.ofSeconds(15)) // 每 15 秒发送一次
+                            .map(interval -> {
+                                log.info("间隔15秒发送ping消息");
+                                return session.textMessage(pingMessage);
+                            })
             ).then();
 
 
@@ -83,14 +98,39 @@ public class WsClientServiceImpl implements WsClientService {
                                     return;
                                 }
                             }
+
+
                         }
                         log.info("Received message: {}", message);
+                        try {
+                            GiftInfoBo giftInfoBo = JSONUtil.toBean(message, GiftInfoBo.class);
+                            GiftLogBO giftbo = GiftLogBO.builder()
+                                    .roomId(giftInfoBo.getData().getRoomId())
+                                    .anchorName(giftInfoBo.getData().getPresenterNick())
+                                    .senderId(giftInfoBo.getData().getSenderUid())
+                                    .senderName(giftInfoBo.getData().getSenderNick())
+                                    .senderAvatarUrl(giftInfoBo.getData().getSenderAvatarUrl())
+                                    .giftId(giftInfoBo.getData().getItemId())
+                                    .amount(giftInfoBo.getData().getItemCount())
+                                    .comboCount(giftInfoBo.getData().getSendItemComboHits())
+                                    .chargePolicy(giftInfoBo.getData().getPayType())
+                                    .totalPayment(giftInfoBo.getData().getTotalPay())
+                                    .totalGems(giftInfoBo.getData().getTotalGet())
+                                    .sentTimestamp(giftInfoBo.getData().getSendTimeStamp())
+                                    .activityId(giftInfoBo.getData().getActivityId())
+                                    .build();
+                            giftLogService.insertGiftLog(giftbo);
+                        }catch (Exception e){
+                            log.error("GiftLog: {}", e.getMessage());
+                        }
                     }) // 处理消息
                     .doOnError(error -> log.error("Error receiving message: {}", error.getMessage())) // 错误处理
                     .then();
-
-            // 合并发送订阅、发送 ping 和接收消息的逻辑
-            return sendSubscription.then(receiveMessages).then(sendPing);
+            return Mono.when(
+                    sendSubscription, // 发送订阅消息
+                    sendPing,         // 定时发送 ping 消息
+                    receiveMessages   // 持续接收消息
+            );
         }).doOnError(error -> {
             // WebSocket 连接错误处理
             log.error("WebSocket connection error: {}", error.getMessage());

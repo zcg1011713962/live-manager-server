@@ -12,6 +12,7 @@ import com.hs.enums.ErrorCode;
 import com.hs.service.GiftLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,40 +26,87 @@ public class GiftLogServiceImpl implements GiftLogService {
     private GiftLogMapper giftLogMapper;
 
     @Override
-    public CompletableFuture<LogicResponse<PageResponse<GiftLogBO>>> searchGiftLog(Integer pageNum, Integer pageSize, String roomId, String giftId, String senderId) {
+    public CompletableFuture<LogicResponse<PageResponse<GiftLogBO>>> searchGiftLog(Integer pageNum, Integer pageSize, String roomId, String giftId, String senderId, Long activityId) {
 
-        return CompletableFuture.supplyAsync(()->{
+        return CompletableFuture.supplyAsync(() -> {
             QueryWrapper<GiftLog> queryWrapper = new QueryWrapper<>();
 
-            queryWrapper.eq(StringUtils.isNotBlank(roomId), "roomId", roomId);
-            queryWrapper.eq(StringUtils.isNotBlank(giftId), "giftId", giftId);
-            queryWrapper.eq(StringUtils.isNotBlank(senderId), "senderId", senderId);
+            // 构建查询条件
+            queryWrapper.eq(StringUtils.isNotBlank(roomId), "room_id", roomId);
+            queryWrapper.eq(StringUtils.isNotBlank(giftId), "gift_id", giftId);
+            queryWrapper.eq(StringUtils.isNotBlank(senderId), "sender_id", senderId);
+            queryWrapper.eq(activityId != null, "activity_id", activityId);
+            queryWrapper.orderByAsc("sent_timestamp");
 
-            Page<GiftLog> page = new Page<>(pageNum, pageSize);
-            IPage<GiftLog> giftLogPage = giftLogMapper.selectPage(page, queryWrapper);
+            List<GiftLogBO> giftLogBOList;
 
-            // 将 User 实体转换为 UserBO
-            List<GiftLogBO> doctorBOList = giftLogPage.getRecords().stream()
-                    .map(d -> {
-                        return GiftLogBO.builder()
+            if (pageSize == null || pageNum == null) {
+                // 如果分页参数为空，查询所有记录
+                List<GiftLog> giftLogs = giftLogMapper.selectList(queryWrapper);
+                giftLogBOList = giftLogs.stream()
+                        .map(d -> GiftLogBO.builder()
+                                .activityId(d.getActivityId())
                                 .roomId(d.getRoomId())
-                                .giftId(d.getGiftId())
-                                .amount(d.getAmount())
                                 .anchorName(d.getAnchorName())
                                 .senderId(d.getSenderId())
+                                .senderName(d.getSenderName())
+                                .senderAvatarUrl(d.getSenderAvatarUrl())
+                                .giftId(d.getGiftId())
+                                .amount(d.getAmount())
                                 .comboCount(d.getComboCount())
-                                .chargePolicy(d.getChargePolicy()).build();
-                    }).collect(Collectors.toList());
+                                .chargePolicy(d.getChargePolicy())
+                                .totalPayment(d.getTotalPayment())
+                                .totalGems(d.getTotalGems())
+                                .sentTimestamp(d.getSentTimestamp())
+                                .build())
+                        .collect(Collectors.toList());
 
-            PageResponse<GiftLogBO> pageResponse = new PageResponse<>(
-                    doctorBOList,
-                    giftLogPage.getTotal(),
-                    giftLogPage.getSize(),
-                    giftLogPage.getCurrent(),
-                    giftLogPage.getPages()
-            );
-            return LogicResponse.<PageResponse<GiftLogBO>>builder().status(ErrorCode.SUCCESS).data(pageResponse).build();
+                // 返回所有记录的 PageResponse
+                PageResponse<GiftLogBO> pageResponse = new PageResponse<>(giftLogBOList, giftLogs.size(), giftLogs.size());
+                return LogicResponse.<PageResponse<GiftLogBO>>builder().status(ErrorCode.SUCCESS).data(pageResponse).build();
+            } else {
+                // 如果分页参数不为空，进行分页查询
+                Page<GiftLog> page = new Page<>(pageNum, pageSize);
+                IPage<GiftLog> giftLogPage = giftLogMapper.selectPage(page, queryWrapper);
+
+                giftLogBOList = giftLogPage.getRecords().stream()
+                        .map(d -> GiftLogBO.builder()
+                                .activityId(d.getActivityId())
+                                .roomId(d.getRoomId())
+                                .anchorName(d.getAnchorName())
+                                .senderId(d.getSenderId())
+                                .senderName(d.getSenderName())
+                                .senderAvatarUrl(d.getSenderAvatarUrl())
+                                .giftId(d.getGiftId())
+                                .amount(d.getAmount())
+                                .comboCount(d.getComboCount())
+                                .chargePolicy(d.getChargePolicy())
+                                .totalPayment(d.getTotalPayment())
+                                .totalGems(d.getTotalGems())
+                                .sentTimestamp(d.getSentTimestamp())
+                                .build())
+                        .collect(Collectors.toList());
+
+                // 返回分页记录的 PageResponse
+                PageResponse<GiftLogBO> pageResponse = new PageResponse<>(
+                        giftLogBOList,
+                        giftLogPage.getTotal(),
+                        giftLogPage.getTotal()
+                );
+                return LogicResponse.<PageResponse<GiftLogBO>>builder().status(ErrorCode.SUCCESS).data(pageResponse).build();
+            }
         });
+    }
+
+
+    @Override
+    public void insertGiftLog(GiftLogBO giftLogBO) {
+        GiftLog giftLog = new GiftLog();
+        BeanUtils.copyProperties(giftLogBO, giftLog);
+        int ret = giftLogMapper.insert(giftLog);
+        if (ret != 1) {
+            log.error("insertGiftLog error:{}", giftLogBO);
+        }
     }
 
 }

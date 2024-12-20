@@ -31,22 +31,17 @@ public class BeanConfig {
 
     @Bean
     public CorsWebFilter corsWebFilter() {
+        // 创建CORS配置
         CorsConfiguration config = new CorsConfiguration();
-        // 允许的来源（生产环境建议限制域名）
-        config.addAllowedOriginPattern("*");
-        // 允许的请求头
-        config.addAllowedHeader("*");
-        // 允许的 HTTP 方法
-        config.addAllowedMethod("*");
-        // 是否允许携带 Cookie
-        config.setAllowCredentials(true);
+        config.addAllowedOriginPattern("*"); // 允许所有域名请求
+        config.addAllowedMethod("*");        // 允许所有HTTP方法 (GET, POST, PUT, DELETE等)
+        config.addAllowedHeader("*");        // 允许所有请求头
+        config.setAllowCredentials(true);    // 允许发送Cookie等凭证
 
+        // 注册CORS配置
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config); // 应用到所有路径
-
+        source.registerCorsConfiguration("/**", config); // 对所有路径生效
         return new CorsWebFilter(source);
     }
-
-
 
 }

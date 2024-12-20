@@ -10,19 +10,23 @@ import java.util.List;
 @Setter
 public class PageResponse<T> {
 
-    private List<T> records; // 当前页数据列表
-    private long total;      // 总记录数
-    private long size;       // 每页记录数
-    private long current;    // 当前页码
-    private long pages;      // 总页数
+    private List<T> data; // 当前页数据列表
+    private long recordsTotal;      // 总记录数
+    private long recordsFiltered;       // 每页记录数
+    private int draw;      // 查询标识
 
-    public PageResponse(List<T> records, long total, long size, long current, long pages) {
-        this.records = records;
-        this.total = total;
-        this.size = size;
-        this.current = current;
-        this.pages = pages;
+
+    public PageResponse(List<T> data, long recordsTotal, long recordsFiltered, int draw) {
+        this.data = data;
+        this.recordsTotal = recordsTotal;
+        this.recordsFiltered = recordsFiltered;
+        this.draw = draw;
     }
 
+    public PageResponse(List<T> data, long recordsTotal, long recordsFiltered) {
+        this.recordsFiltered = recordsFiltered;
+        this.recordsTotal = recordsTotal;
+        this.data = data;
+    }
 }
 

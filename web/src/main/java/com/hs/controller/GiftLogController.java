@@ -44,11 +44,12 @@ public class GiftLogController {
     public Mono<PageResponse<GiftLogVO>> search(@RequestParam(value = "draw") int draw, @RequestParam(value = "pageNum") Integer pageNum,
                                                               @RequestParam(value = "pageSize") Integer pageSize, @RequestParam(value = "roomId",required = false) String roomId,
                                                               @RequestParam(value = "giftId",required = false) String giftId, @RequestParam(value = "senderId",required = false) String senderId,
-                                                              @RequestParam(value = "activityDesc",required = false) String activityDesc) {
-        log.debug("查询礼物日志 pageSize:{} pageNum :{} roomId:{} giftId:{} senderId:{}", pageSize, pageNum, roomId, giftId, senderId);
+                                                              @RequestParam(value = "activityDesc",required = false) String activityDesc,@RequestParam(value = "startTime",required = false) Long startTime,
+                                                              @RequestParam(value = "endTime",required = false) Long endTime) {
+        log.debug("查询礼物日志 pageSize:{} pageNum :{} roomId:{} giftId:{} senderId:{} startTime:{} endTime:{}", pageSize, pageNum, roomId, giftId, senderId, startTime, endTime);
         Long activityId = StringUtils.isNotBlank(activityDesc) ? ActivityType.fromValue(activityDesc).getType() : null;
 
-        CompletableFuture<PageResponse<GiftLogVO>> future = giftLogService.searchGiftLog(pageNum, pageSize, roomId, giftId, senderId, activityId).thenApply((logicResponse) -> {
+        CompletableFuture<PageResponse<GiftLogVO>> future = giftLogService.searchGiftLog(pageNum, pageSize, roomId, giftId, senderId, activityId, startTime, endTime).thenApply((logicResponse) -> {
             if (logicResponse.getStatus() == ErrorCode.SUCCESS) {
                 PageResponse<GiftLogBO> pageBO = logicResponse.getData();
 
@@ -98,7 +99,8 @@ public class GiftLogController {
     @GetMapping(value = "/api/giftlog/export", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public Mono<Void> exportExcel(ServerWebExchange exchange, @RequestParam(value = "draw") int draw,  @RequestParam(value = "roomId",required = false) String roomId,
                                   @RequestParam(value = "giftId",required = false) String giftId, @RequestParam(value = "senderId",required = false) String senderId,
-                                  @RequestParam(value = "activityDesc",required = false) String activityDesc) {
+                                  @RequestParam(value = "activityDesc",required = false) String activityDesc,@RequestParam(value = "startTime",required = false) Long startTime,
+                                  @RequestParam(value = "endTime",required = false) Long endTime) {
         // 创建 Excel 文件并写入响应流
         return Mono.fromCallable(() -> {
             try {
@@ -124,7 +126,7 @@ public class GiftLogController {
 
 
                 Long activityId = StringUtils.isNotBlank(activityDesc) ? ActivityType.fromValue(activityDesc).getType() : null;
-                List<GiftLogVO> giftLogVO = giftLogService.searchGiftLog(null, null, roomId, giftId, senderId, activityId).thenApply((logicResponse) -> {
+                List<GiftLogVO> giftLogVO = giftLogService.searchGiftLog(null, null, roomId, giftId, senderId, activityId, startTime, endTime).thenApply((logicResponse) -> {
                     if (logicResponse.getStatus() == ErrorCode.SUCCESS) {
                         PageResponse<GiftLogBO> pageBO = logicResponse.getData();
                         List<GiftLogVO> giftLogVOList = pageBO.getData().stream()

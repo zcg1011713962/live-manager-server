@@ -3624,3 +3624,300 @@
 2024-12-20T16:39:42.219+08:00 DEBUG 28048 --- [ForkJoinPool.commonPool-worker-1] com.hs.db.mapper.UserMapper.selectList   : <==      Total: 0
 2024-12-20T16:39:49.669+08:00  INFO 28048 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-20T16:39:49.675+08:00  INFO 28048 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-20T17:26:16.917+08:00  INFO 29112 --- [main] com.hs.Main                              : Starting Main using Java 17.0.12 with PID 29112 (D:\coding\live-manager-server\web\target\classes started by joe in D:\coding\live-manager-server)
+2024-12-20T17:26:16.918+08:00 DEBUG 29112 --- [main] com.hs.Main                              : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-20T17:26:16.919+08:00  INFO 29112 --- [main] com.hs.Main                              : No active profile set, falling back to 1 default profile: "default"
+2024-12-20T17:26:17.263+08:00  INFO 29112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-12-20T17:26:17.264+08:00  INFO 29112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-12-20T17:26:17.282+08:00  INFO 29112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2024-12-20T17:26:17.677+08:00  WARN 29112 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.User".
+2024-12-20T17:26:17.680+08:00  WARN 29112 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.User ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-20T17:26:17.717+08:00  WARN 29112 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.GiftLog".
+2024-12-20T17:26:17.718+08:00  WARN 29112 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.GiftLog ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-20T17:26:18.209+08:00  INFO 29112 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 9000 (http)
+2024-12-20T17:26:18.214+08:00  INFO 29112 --- [main] com.hs.Main                              : Started Main in 1.58 seconds (process running for 2.083)
+2024-12-20T17:28:27.290+08:00 DEBUG 29112 --- [reactor-http-nio-2] com.hs.controller.UserController         : 查询用户:UserDTO(userId=null, userName=root, pwd=yx168168, userType=null, realName=null, phoneNum=null, email=null, gender=null, birthdate=null, createTime=null, lastLoginTime=null, code=null)
+2024-12-20T17:28:27.339+08:00  INFO 29112 --- [ForkJoinPool.commonPool-worker-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-20T17:28:27.485+08:00  INFO 29112 --- [ForkJoinPool.commonPool-worker-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@512b8114
+2024-12-20T17:28:27.486+08:00  INFO 29112 --- [ForkJoinPool.commonPool-worker-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-20T17:28:27.490+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-1] com.hs.db.mapper.UserMapper.selectList   : ==>  Preparing: SELECT user_id,user_name,pwd,user_type,real_name,phone_num,email,gender,birthdate,create_time,last_login_time FROM user WHERE (user_name = ? AND pwd = ?)
+2024-12-20T17:28:27.503+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-1] com.hs.db.mapper.UserMapper.selectList   : ==> Parameters: root(String), yx168168(String)
+2024-12-20T17:28:27.516+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-1] com.hs.db.mapper.UserMapper.selectList   : <==      Total: 1
+2024-12-20T17:33:56.487+08:00 DEBUG 29112 --- [reactor-http-nio-3] com.hs.controller.UserController         : 查询用户:UserDTO(userId=null, userName=root, pwd=yx168168, userType=null, realName=null, phoneNum=null, email=null, gender=null, birthdate=null, createTime=null, lastLoginTime=null, code=null)
+2024-12-20T17:33:56.489+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-2] com.hs.db.mapper.UserMapper.selectList   : ==>  Preparing: SELECT user_id,user_name,pwd,user_type,real_name,phone_num,email,gender,birthdate,create_time,last_login_time FROM user WHERE (user_name = ? AND pwd = ?)
+2024-12-20T17:33:56.490+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-2] com.hs.db.mapper.UserMapper.selectList   : ==> Parameters: root(String), yx168168(String)
+2024-12-20T17:33:56.492+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-2] com.hs.db.mapper.UserMapper.selectList   : <==      Total: 1
+2024-12-20T20:23:15.056+08:00 DEBUG 29112 --- [reactor-http-nio-4] com.hs.controller.UserController         : 查询用户:UserDTO(userId=null, userName=root, pwd=yx168168, userType=null, realName=null, phoneNum=null, email=null, gender=null, birthdate=null, createTime=null, lastLoginTime=null, code=null)
+2024-12-20T20:23:15.066+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-3] com.hs.db.mapper.UserMapper.selectList   : ==>  Preparing: SELECT user_id,user_name,pwd,user_type,real_name,phone_num,email,gender,birthdate,create_time,last_login_time FROM user WHERE (user_name = ? AND pwd = ?)
+2024-12-20T20:23:15.067+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-3] com.hs.db.mapper.UserMapper.selectList   : ==> Parameters: root(String), yx168168(String)
+2024-12-20T20:23:15.071+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-3] com.hs.db.mapper.UserMapper.selectList   : <==      Total: 1
+2024-12-20T20:27:00.118+08:00 DEBUG 29112 --- [reactor-http-nio-5] com.hs.controller.UserController         : 查询用户:UserDTO(userId=null, userName=root, pwd=yx168168, userType=null, realName=null, phoneNum=null, email=null, gender=null, birthdate=null, createTime=null, lastLoginTime=null, code=null)
+2024-12-20T20:27:00.120+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-4] com.hs.db.mapper.UserMapper.selectList   : ==>  Preparing: SELECT user_id,user_name,pwd,user_type,real_name,phone_num,email,gender,birthdate,create_time,last_login_time FROM user WHERE (user_name = ? AND pwd = ?)
+2024-12-20T20:27:00.122+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-4] com.hs.db.mapper.UserMapper.selectList   : ==> Parameters: root(String), yx168168(String)
+2024-12-20T20:27:00.124+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-4] com.hs.db.mapper.UserMapper.selectList   : <==      Total: 1
+2024-12-20T20:30:23.084+08:00 DEBUG 29112 --- [reactor-http-nio-6] com.hs.controller.UserController         : 查询用户:UserDTO(userId=null, userName=root, pwd=yx168168, userType=null, realName=null, phoneNum=null, email=null, gender=null, birthdate=null, createTime=null, lastLoginTime=null, code=null)
+2024-12-20T20:30:23.086+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-5] com.hs.db.mapper.UserMapper.selectList   : ==>  Preparing: SELECT user_id,user_name,pwd,user_type,real_name,phone_num,email,gender,birthdate,create_time,last_login_time FROM user WHERE (user_name = ? AND pwd = ?)
+2024-12-20T20:30:23.086+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-5] com.hs.db.mapper.UserMapper.selectList   : ==> Parameters: root(String), yx168168(String)
+2024-12-20T20:30:23.087+08:00 DEBUG 29112 --- [ForkJoinPool.commonPool-worker-5] com.hs.db.mapper.UserMapper.selectList   : <==      Total: 1
+2024-12-20T21:51:30.130+08:00  INFO 29112 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-20T21:51:30.141+08:00  INFO 29112 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-20T21:51:37.463+08:00  INFO 30456 --- [main] com.hs.Main                              : Starting Main using Java 17.0.12 with PID 30456 (D:\coding\live-manager-server\web\target\classes started by joe in D:\coding\live-manager-server)
+2024-12-20T21:51:37.464+08:00 DEBUG 30456 --- [main] com.hs.Main                              : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-20T21:51:37.464+08:00  INFO 30456 --- [main] com.hs.Main                              : No active profile set, falling back to 1 default profile: "default"
+2024-12-20T21:51:37.812+08:00  INFO 30456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-12-20T21:51:37.814+08:00  INFO 30456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-12-20T21:51:37.831+08:00  INFO 30456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2024-12-20T21:51:38.225+08:00  WARN 30456 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.User".
+2024-12-20T21:51:38.228+08:00  WARN 30456 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.User ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-20T21:51:38.273+08:00  WARN 30456 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.GiftLog".
+2024-12-20T21:51:38.273+08:00  WARN 30456 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.GiftLog ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-20T21:51:38.742+08:00  INFO 30456 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 9000 (http)
+2024-12-20T21:51:38.747+08:00  INFO 30456 --- [main] com.hs.Main                              : Started Main in 1.591 seconds (process running for 2.065)
+2024-12-20T21:51:51.326+08:00 DEBUG 30456 --- [reactor-http-nio-2] com.hs.controller.UserController         : 查询用户:UserDTO(userId=null, userName=root, pwd=yx168168, userType=null, realName=null, phoneNum=null, email=null, gender=null, birthdate=null, createTime=null, lastLoginTime=null, code=null)
+2024-12-20T21:51:51.379+08:00  INFO 30456 --- [ForkJoinPool.commonPool-worker-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-20T21:51:51.533+08:00  INFO 30456 --- [ForkJoinPool.commonPool-worker-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e179d83
+2024-12-20T21:51:51.534+08:00  INFO 30456 --- [ForkJoinPool.commonPool-worker-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-20T21:51:51.538+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-1] com.hs.db.mapper.UserMapper.selectList   : ==>  Preparing: SELECT user_id,user_name,pwd,user_type,real_name,phone_num,email,gender,birthdate,create_time,last_login_time FROM user WHERE (user_name = ? AND pwd = ?)
+2024-12-20T21:51:51.551+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-1] com.hs.db.mapper.UserMapper.selectList   : ==> Parameters: root(String), yx168168(String)
+2024-12-20T21:51:51.564+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-1] com.hs.db.mapper.UserMapper.selectList   : <==      Total: 1
+2024-12-20T21:55:57.217+08:00 DEBUG 30456 --- [reactor-http-nio-3] com.hs.controller.UserController         : 查询用户:UserDTO(userId=null, userName=root, pwd=yx168168, userType=null, realName=null, phoneNum=null, email=null, gender=null, birthdate=null, createTime=null, lastLoginTime=null, code=null)
+2024-12-20T21:55:57.220+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] com.hs.db.mapper.UserMapper.selectList   : ==>  Preparing: SELECT user_id,user_name,pwd,user_type,real_name,phone_num,email,gender,birthdate,create_time,last_login_time FROM user WHERE (user_name = ? AND pwd = ?)
+2024-12-20T21:55:57.220+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] com.hs.db.mapper.UserMapper.selectList   : ==> Parameters: root(String), yx168168(String)
+2024-12-20T21:55:57.222+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] com.hs.db.mapper.UserMapper.selectList   : <==      Total: 1
+2024-12-20T21:56:52.132+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.UserController         : 查询用户:UserDTO(userId=null, userName=root, pwd=yx168168, userType=null, realName=null, phoneNum=null, email=null, gender=null, birthdate=null, createTime=null, lastLoginTime=null, code=null)
+2024-12-20T21:56:52.133+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] com.hs.db.mapper.UserMapper.selectList   : ==>  Preparing: SELECT user_id,user_name,pwd,user_type,real_name,phone_num,email,gender,birthdate,create_time,last_login_time FROM user WHERE (user_name = ? AND pwd = ?)
+2024-12-20T21:56:52.133+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] com.hs.db.mapper.UserMapper.selectList   : ==> Parameters: root(String), yx168168(String)
+2024-12-20T21:56:52.135+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] com.hs.db.mapper.UserMapper.selectList   : <==      Total: 1
+2024-12-20T21:56:52.227+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:04.398+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log
+2024-12-20T21:57:04.399+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 
+2024-12-20T21:57:04.399+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:57:04.401+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T21:57:04.402+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 10(Long)
+2024-12-20T21:57:04.405+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T21:57:19.571+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:19.580+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T21:57:19.580+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703038000(Long), 1734703038000(Long)
+2024-12-20T21:57:19.582+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:57:21.940+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:21.951+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T21:57:21.951+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703038000(Long), 1734703038000(Long)
+2024-12-20T21:57:21.953+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:57:25.997+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:26.002+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T21:57:26.003+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703038000(Long), 1734703038000(Long)
+2024-12-20T21:57:26.004+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:57:33.401+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:33.409+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log
+2024-12-20T21:57:33.410+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 
+2024-12-20T21:57:33.412+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:57:33.413+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T21:57:33.413+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 10(Long)
+2024-12-20T21:57:33.418+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T21:57:44.820+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:44.828+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T21:57:44.828+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1733493438000(Long)
+2024-12-20T21:57:44.829+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:57:46.765+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:46.772+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T21:57:46.773+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1733493438000(Long), 1733407038000(Long)
+2024-12-20T21:57:46.774+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:57:55.736+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:55.743+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T21:57:55.743+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703038000(Long), 1734875838000(Long)
+2024-12-20T21:57:55.745+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:57:56.557+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:56.565+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T21:57:56.565+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703038000(Long), 1734875838000(Long)
+2024-12-20T21:57:56.566+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:57:57.735+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:57:57.743+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T21:57:57.743+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703038000(Long), 1734875838000(Long)
+2024-12-20T21:57:57.745+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:58:02.420+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:58:02.428+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T21:58:02.429+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703038000(Long), 1734875838000(Long)
+2024-12-20T21:58:02.432+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:58:12.635+08:00 DEBUG 30456 --- [reactor-http-nio-4] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId:
+2024-12-20T21:58:12.644+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T21:58:12.644+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703038000(Long), 1734875838000(Long)
+2024-12-20T21:58:12.645+08:00 DEBUG 30456 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:59:22.354+08:00  INFO 30456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-20T21:59:22.363+08:00  INFO 30456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-20T21:59:28.399+08:00  INFO 27852 --- [main] com.hs.Main                              : Starting Main using Java 17.0.12 with PID 27852 (D:\coding\live-manager-server\web\target\classes started by joe in D:\coding\live-manager-server)
+2024-12-20T21:59:28.400+08:00 DEBUG 27852 --- [main] com.hs.Main                              : Running with Spring Boot v3.3.5, Spring v6.1.14
+2024-12-20T21:59:28.401+08:00  INFO 27852 --- [main] com.hs.Main                              : No active profile set, falling back to 1 default profile: "default"
+2024-12-20T21:59:28.730+08:00  INFO 27852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-12-20T21:59:28.732+08:00  INFO 27852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-12-20T21:59:28.753+08:00  INFO 27852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2024-12-20T21:59:29.182+08:00  WARN 27852 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.User".
+2024-12-20T21:59:29.190+08:00  WARN 27852 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.User ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-20T21:59:29.255+08:00  WARN 27852 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.hs.db.entity.GiftLog".
+2024-12-20T21:59:29.255+08:00  WARN 27852 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.hs.db.entity.GiftLog ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-12-20T21:59:30.038+08:00  INFO 27852 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 9000 (http)
+2024-12-20T21:59:30.046+08:00  INFO 27852 --- [main] com.hs.Main                              : Started Main in 1.948 seconds (process running for 2.357)
+2024-12-20T21:59:49.568+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:null endTime:null
+2024-12-20T21:59:49.653+08:00  INFO 27852 --- [ForkJoinPool.commonPool-worker-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-20T21:59:49.808+08:00  INFO 27852 --- [ForkJoinPool.commonPool-worker-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4d441bc5
+2024-12-20T21:59:49.809+08:00  INFO 27852 --- [ForkJoinPool.commonPool-worker-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-20T21:59:49.813+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log
+2024-12-20T21:59:49.826+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 
+2024-12-20T21:59:49.838+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T21:59:49.843+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T21:59:49.843+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 10(Long)
+2024-12-20T21:59:49.847+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T22:00:08.634+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734703206000 endTime:null
+2024-12-20T22:00:08.649+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:00:08.649+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703206000(Long)
+2024-12-20T22:00:08.650+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:00:17.532+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:null endTime:null
+2024-12-20T22:00:17.539+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log
+2024-12-20T22:00:17.540+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 
+2024-12-20T22:00:17.541+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:00:17.541+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:00:17.541+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 10(Long)
+2024-12-20T22:00:17.545+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T22:00:41.745+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:null endTime:null
+2024-12-20T22:00:41.751+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log
+2024-12-20T22:00:41.751+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 
+2024-12-20T22:00:41.751+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:00:41.751+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:00:41.751+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 10(Long)
+2024-12-20T22:00:41.753+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-1] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T22:02:30.889+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734616806000 endTime:null
+2024-12-20T22:02:30.895+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:02:30.895+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734616806000(Long)
+2024-12-20T22:02:30.896+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:02:31.966+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734616806000 endTime:null
+2024-12-20T22:02:31.972+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:02:31.973+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734616806000(Long)
+2024-12-20T22:02:31.974+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-2] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:05:52.041+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:null endTime:null
+2024-12-20T22:05:52.047+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log
+2024-12-20T22:05:52.047+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 
+2024-12-20T22:05:52.048+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:05:52.049+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:05:52.049+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 10(Long)
+2024-12-20T22:05:52.050+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T22:05:57.225+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734617155 endTime:null
+2024-12-20T22:05:57.231+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:05:57.232+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734617155(Long)
+2024-12-20T22:05:57.233+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:05:57.233+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:05:57.233+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734617155(Long), 10(Long)
+2024-12-20T22:05:57.235+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T22:05:58.218+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734617155 endTime:null
+2024-12-20T22:05:58.225+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:05:58.225+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734617155(Long)
+2024-12-20T22:05:58.227+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:05:58.228+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:05:58.228+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734617155(Long), 10(Long)
+2024-12-20T22:05:58.230+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T22:05:59.139+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734617155 endTime:null
+2024-12-20T22:05:59.152+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:05:59.153+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734617155(Long)
+2024-12-20T22:05:59.155+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:05:59.155+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:05:59.156+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734617155(Long), 10(Long)
+2024-12-20T22:05:59.159+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T22:06:03.447+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734789955 endTime:null
+2024-12-20T22:06:03.453+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:06:03.454+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734789955(Long)
+2024-12-20T22:06:03.455+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:06:04.225+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734789955 endTime:null
+2024-12-20T22:06:04.234+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:06:04.234+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734789955(Long)
+2024-12-20T22:06:04.234+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:06:08.665+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734703555 endTime:null
+2024-12-20T22:06:08.671+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:06:08.672+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703555(Long)
+2024-12-20T22:06:08.673+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:06:09.550+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734703555 endTime:null
+2024-12-20T22:06:09.555+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:06:09.555+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703555(Long)
+2024-12-20T22:06:09.556+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:06:18.780+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734624355 endTime:null
+2024-12-20T22:06:18.787+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:06:18.787+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734624355(Long)
+2024-12-20T22:06:18.789+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:06:18.789+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:06:18.789+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734624355(Long), 10(Long)
+2024-12-20T22:06:18.790+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 6
+2024-12-20T22:06:29.086+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734625555 endTime:null
+2024-12-20T22:06:29.096+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:06:29.096+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734625555(Long)
+2024-12-20T22:06:29.097+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:06:29.097+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:06:29.098+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734625555(Long), 10(Long)
+2024-12-20T22:06:29.099+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 2
+2024-12-20T22:06:42.713+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734625555 endTime:null
+2024-12-20T22:06:42.719+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:06:42.719+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734625555(Long)
+2024-12-20T22:06:42.720+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:06:42.720+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:06:42.720+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734625555(Long), 10(Long)
+2024-12-20T22:06:42.722+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-3] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 2
+2024-12-20T22:09:22.069+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:null endTime:null
+2024-12-20T22:09:22.080+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log
+2024-12-20T22:09:22.080+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 
+2024-12-20T22:09:22.081+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:09:22.081+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:09:22.081+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 10(Long)
+2024-12-20T22:09:22.083+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T22:09:28.772+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734703767 endTime:null
+2024-12-20T22:09:28.780+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:09:28.780+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703767(Long)
+2024-12-20T22:09:28.781+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:09:36.485+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734625407 endTime:null
+2024-12-20T22:09:36.496+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:09:36.496+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734625407(Long)
+2024-12-20T22:09:36.497+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:09:36.497+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:09:36.497+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734625407(Long), 10(Long)
+2024-12-20T22:09:36.498+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-4] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 2
+2024-12-20T22:11:16.227+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:null endTime:null
+2024-12-20T22:11:16.234+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log
+2024-12-20T22:11:16.234+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 
+2024-12-20T22:11:16.235+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:11:16.235+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:11:16.235+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 10(Long)
+2024-12-20T22:11:16.236+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 10
+2024-12-20T22:11:22.289+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734703878 endTime:null
+2024-12-20T22:11:22.295+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:11:22.295+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734703878(Long)
+2024-12-20T22:11:22.296+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:11:25.917+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734624678 endTime:null
+2024-12-20T22:11:25.925+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:11:25.925+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734624678(Long)
+2024-12-20T22:11:25.926+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:11:25.926+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:11:25.926+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734624678(Long), 10(Long)
+2024-12-20T22:11:25.927+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 3
+2024-12-20T22:11:27.531+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734624678 endTime:null
+2024-12-20T22:11:27.540+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ?)
+2024-12-20T22:11:27.540+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734624678(Long)
+2024-12-20T22:11:27.542+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:11:27.542+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:11:27.542+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734624678(Long), 10(Long)
+2024-12-20T22:11:27.543+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 3
+2024-12-20T22:11:30.100+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ?) ORDER BY sent_timestamp DESC
+2024-12-20T22:11:30.100+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734624678(Long)
+2024-12-20T22:11:30.101+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 3
+2024-12-20T22:12:10.107+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734624678 endTime:1734703926
+2024-12-20T22:12:10.114+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T22:12:10.114+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734624678(Long), 1734703926(Long)
+2024-12-20T22:12:10.115+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:12:10.115+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:12:10.115+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734624678(Long), 1734703926(Long), 10(Long)
+2024-12-20T22:12:10.116+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 3
+2024-12-20T22:12:23.472+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734624678 endTime:1734625446
+2024-12-20T22:12:23.484+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T22:12:23.485+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 1734624678(Long), 1734625446(Long)
+2024-12-20T22:12:23.485+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.h.d.m.G.selectList_mpCount             : <==      Total: 1
+2024-12-20T22:12:23.486+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==>  Preparing: SELECT room_id,anchor_name,sender_id,sender_name,sender_avatar_url,gift_id,amount,combo_count,charge_policy,total_payment,total_gems,sent_timestamp,activity_id FROM gift_log WHERE (sent_timestamp >= ? AND sent_timestamp <= ?) ORDER BY sent_timestamp DESC LIMIT ?
+2024-12-20T22:12:23.486+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : ==> Parameters: 1734624678(Long), 1734625446(Long), 10(Long)
+2024-12-20T22:12:23.487+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-5] c.hs.db.mapper.GiftLogMapper.selectList  : <==      Total: 1
+2024-12-20T22:13:27.952+08:00 DEBUG 27852 --- [reactor-http-nio-2] com.hs.controller.GiftLogController      : 查询礼物日志 pageSize:10 pageNum :1 roomId: giftId: senderId: startTime:1734624678 endTime:1734625446
+2024-12-20T22:13:27.963+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-6] c.h.d.m.G.selectList_mpCount             : ==>  Preparing: SELECT COUNT(*) AS total FROM gift_log WHERE (activity_id = ? AND sent_timestamp >= ? AND sent_timestamp <= ?)
+2024-12-20T22:13:27.963+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-6] c.h.d.m.G.selectList_mpCount             : ==> Parameters: 100438(Long), 1734624678(Long), 1734625446(Long)
+2024-12-20T22:13:27.964+08:00 DEBUG 27852 --- [ForkJoinPool.commonPool-worker-6] c.h.d.m.G.selectList_mpCount             : <==      Total: 1

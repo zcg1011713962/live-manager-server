@@ -8,7 +8,7 @@ import java.util.concurrent.CompletableFuture;
 
 public interface GiftLogService {
 
-    CompletableFuture<LogicResponse<PageResponse<GiftLogBO>>> searchGiftLog(Integer pageNum, Integer pageSize,String roomId, String giftId, String senderId, Long activityId, Long startTime, Long endTime);
+    CompletableFuture<LogicResponse<PageResponse<GiftLogBO>>> searchGiftLog(Integer pageNum, Integer pageSize,String roomId, String giftId, String senderId, Long activityId, Long startTime, Long endTime, String senderName, String anchorName);
 
     void insertGiftLog(GiftLogBO giftLogBO);
 

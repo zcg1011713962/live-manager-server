@@ -34,7 +34,7 @@ public class WsClientServiceImpl implements WsClientService {
 
     @PostConstruct
     public void init() {
-        connect();
+       // connect();
     }
 
     @Override

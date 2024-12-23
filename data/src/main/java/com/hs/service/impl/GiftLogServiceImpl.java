@@ -26,7 +26,7 @@ public class GiftLogServiceImpl implements GiftLogService {
     private GiftLogMapper giftLogMapper;
 
     @Override
-    public CompletableFuture<LogicResponse<PageResponse<GiftLogBO>>> searchGiftLog(Integer pageNum, Integer pageSize, String roomId, String giftId, String senderId, Long activityId, Long startTime, Long endTime) {
+    public CompletableFuture<LogicResponse<PageResponse<GiftLogBO>>> searchGiftLog(Integer pageNum, Integer pageSize, String roomId, String giftId, String senderId, Long activityId, Long startTime, Long endTime, String senderName, String anchorName) {
 
         return CompletableFuture.supplyAsync(() -> {
             QueryWrapper<GiftLog> queryWrapper = new QueryWrapper<>();
@@ -38,6 +38,8 @@ public class GiftLogServiceImpl implements GiftLogService {
             queryWrapper.eq(activityId != null, "activity_id", activityId);
             queryWrapper.ge(startTime != null, "sent_timestamp", startTime);
             queryWrapper.le(endTime != null, "sent_timestamp", endTime);
+            queryWrapper.like(StringUtils.isNotBlank(senderName), "sender_name", senderName);
+            queryWrapper.like(StringUtils.isNotBlank(anchorName), "anchor_name", anchorName);
             queryWrapper.orderByDesc("sent_timestamp");
 
             List<GiftLogBO> giftLogBOList;

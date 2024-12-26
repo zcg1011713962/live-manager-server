@@ -34,7 +34,7 @@ public class WsClientServiceImpl implements WsClientService {
 
     @PostConstruct
     public void init() {
-       // connect();
+       connect();
     }
 
     @Override
@@ -98,8 +98,6 @@ public class WsClientServiceImpl implements WsClientService {
                                     return;
                                 }
                             }
-
-
                         }
                         log.info("Received message: {}", message);
                         try {

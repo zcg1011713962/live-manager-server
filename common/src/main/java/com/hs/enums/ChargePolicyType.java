@@ -4,7 +4,8 @@ public enum ChargePolicyType {
     DIAMOND(1002, "钻石"),
     COIN(1003, "金币"),
     FREEGIFT(1018, "免费背包礼"),
-    GOLDBean(3008, "金豆");
+    GOLDBean(3008, "金豆"),
+    OTHER(-1, "其他");
 
     private final int type;
 
@@ -30,7 +31,7 @@ public enum ChargePolicyType {
                 return gift;
             }
         }
-        throw new IllegalArgumentException("Unexpected key: " + key);
+        return OTHER;
     }
 
     // 通过 value 获取对应的枚举值
@@ -40,6 +41,6 @@ public enum ChargePolicyType {
                 return gift;
             }
         }
-        throw new IllegalArgumentException("Unexpected value: " + value);
+        return OTHER;
     }
 }

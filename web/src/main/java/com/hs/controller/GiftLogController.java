@@ -46,11 +46,12 @@ public class GiftLogController {
                                                               @RequestParam(value = "giftId",required = false) String giftId, @RequestParam(value = "senderId",required = false) String senderId,
                                                               @RequestParam(value = "activityDesc",required = false) String activityDesc,@RequestParam(value = "startTime",required = false) Long startTime,
                                                               @RequestParam(value = "endTime",required = false) Long endTime,@RequestParam(value = "senderName",required = false) String senderName,
-                                                              @RequestParam(value = "anchorName",required = false) String anchorName) {
+                                                              @RequestParam(value = "anchorName",required = false) String anchorName, @RequestParam(value = "payType",required = false) String payType) {
         log.debug("查询礼物日志 pageSize:{} pageNum :{} roomId:{} giftId:{} senderId:{} startTime:{} endTime:{}", pageSize, pageNum, roomId, giftId, senderId, startTime, endTime);
         Long activityId = StringUtils.isNotBlank(activityDesc) ? ActivityType.fromValue(activityDesc).getType() : null;
+        Integer chargePolicy = StringUtils.isNotBlank(payType)  ? ChargePolicyType.fromValue(payType).getType() : null;
 
-        CompletableFuture<PageResponse<GiftLogVO>> future = giftLogService.searchGiftLog(pageNum, pageSize, roomId, giftId, senderId, activityId, startTime, endTime, senderName, anchorName).thenApply((logicResponse) -> {
+        CompletableFuture<PageResponse<GiftLogVO>> future = giftLogService.searchGiftLog(pageNum, pageSize, roomId, giftId, senderId, activityId, startTime, endTime, senderName, anchorName, chargePolicy).thenApply((logicResponse) -> {
             if (logicResponse.getStatus() == ErrorCode.SUCCESS) {
                 PageResponse<GiftLogBO> pageBO = logicResponse.getData();
 
@@ -102,7 +103,7 @@ public class GiftLogController {
                                   @RequestParam(value = "giftId",required = false) String giftId, @RequestParam(value = "senderId",required = false) String senderId,
                                   @RequestParam(value = "activityDesc",required = false) String activityDesc,@RequestParam(value = "startTime",required = false) Long startTime,
                                   @RequestParam(value = "endTime",required = false) Long endTime,@RequestParam(value = "senderName",required = false) String senderName,
-                                  @RequestParam(value = "anchorName",required = false) String anchorName) {
+                                  @RequestParam(value = "anchorName",required = false) String anchorName, @RequestParam(value = "payType",required = false) String payType) {
         // 创建 Excel 文件并写入响应流
         return Mono.fromCallable(() -> {
             try {
@@ -128,7 +129,9 @@ public class GiftLogController {
 
 
                 Long activityId = StringUtils.isNotBlank(activityDesc) ? ActivityType.fromValue(activityDesc).getType() : null;
-                List<GiftLogVO> giftLogVO = giftLogService.searchGiftLog(null, null, roomId, giftId, senderId, activityId, startTime, endTime, senderName, anchorName).thenApply((logicResponse) -> {
+                Integer chargePolicy = StringUtils.isNotBlank(payType)  ? ChargePolicyType.fromValue(payType).getType() : null;
+
+                List<GiftLogVO> giftLogVO = giftLogService.searchGiftLog(null, null, roomId, giftId, senderId, activityId, startTime, endTime, senderName, anchorName, chargePolicy).thenApply((logicResponse) -> {
                     if (logicResponse.getStatus() == ErrorCode.SUCCESS) {
                         PageResponse<GiftLogBO> pageBO = logicResponse.getData();
                         List<GiftLogVO> giftLogVOList = pageBO.getData().stream()

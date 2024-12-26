@@ -8,6 +8,7 @@ import com.hs.db.mapper.GiftLogMapper;
 import com.hs.entity.LogicResponse;
 import com.hs.entity.PageResponse;
 import com.hs.entity.bo.GiftLogBO;
+import com.hs.enums.ChargePolicyType;
 import com.hs.enums.ErrorCode;
 import com.hs.service.GiftLogService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +27,7 @@ public class GiftLogServiceImpl implements GiftLogService {
     private GiftLogMapper giftLogMapper;
 
     @Override
-    public CompletableFuture<LogicResponse<PageResponse<GiftLogBO>>> searchGiftLog(Integer pageNum, Integer pageSize, String roomId, String giftId, String senderId, Long activityId, Long startTime, Long endTime, String senderName, String anchorName) {
+    public CompletableFuture<LogicResponse<PageResponse<GiftLogBO>>> searchGiftLog(Integer pageNum, Integer pageSize, String roomId, String giftId, String senderId, Long activityId, Long startTime, Long endTime, String senderName, String anchorName, Integer chargePolicy) {
 
         return CompletableFuture.supplyAsync(() -> {
             QueryWrapper<GiftLog> queryWrapper = new QueryWrapper<>();
@@ -40,6 +41,11 @@ public class GiftLogServiceImpl implements GiftLogService {
             queryWrapper.le(endTime != null, "sent_timestamp", endTime);
             queryWrapper.like(StringUtils.isNotBlank(senderName), "sender_name", senderName);
             queryWrapper.like(StringUtils.isNotBlank(anchorName), "anchor_name", anchorName);
+            if (chargePolicy != null && chargePolicy == ChargePolicyType.OTHER.getType()) { // 其他
+                queryWrapper.notIn("charge_policy", ChargePolicyType.COIN.getType(), ChargePolicyType.DIAMOND.getType(), ChargePolicyType.FREEGIFT.getType(), ChargePolicyType.GOLDBean.getType());
+            }else{
+                queryWrapper.eq(chargePolicy != null, "charge_policy", chargePolicy);
+            }
             queryWrapper.orderByDesc("sent_timestamp");
 
             List<GiftLogBO> giftLogBOList;

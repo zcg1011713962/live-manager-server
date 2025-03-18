@@ -49,10 +49,15 @@ public class UserController {
         return Mono.fromFuture(future);
     }
 
-    @GetMapping("/api/do")
-    public void get(){
-        wsClientService.connect();
+    @GetMapping("/api/reConnect")
+    public void reConnect(){
+        wsClientService.reConnect();
     }
 
+
+    @GetMapping("/api/getStatus")
+    public boolean getStatus(){
+        return wsClientService.getStatus();
+    }
 
 }

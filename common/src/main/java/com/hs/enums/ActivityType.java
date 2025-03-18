@@ -2,7 +2,8 @@ package com.hs.enums;
 
 public enum ActivityType {
     ALL(0L, "无"),
-    BOX(100438L, "拆盒子");
+    BOX(100438L, "拆盒子"),
+    OTHER(99999L, "其他");
 
     private final Long type;
 
@@ -29,7 +30,7 @@ public enum ActivityType {
                 return gift;
             }
         }
-        throw new IllegalArgumentException("Unexpected key: " + key);
+        return OTHER;
     }
 
     // 通过 value 获取对应的枚举值
@@ -39,6 +40,6 @@ public enum ActivityType {
                 return gift;
             }
         }
-        throw new IllegalArgumentException("Unexpected value: " + value);
+        return OTHER;
     }
 }

@@ -36,4 +36,6 @@ public class GiftLogVO {
     private Long sentTimestamp;
     // 活动类型
     private String activityDesc;
+    // 备注
+    private String mark;
 }

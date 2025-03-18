@@ -46,7 +46,8 @@ public class GiftLogController {
                                                               @RequestParam(value = "giftId",required = false) String giftId, @RequestParam(value = "senderId",required = false) String senderId,
                                                               @RequestParam(value = "activityDesc",required = false) String activityDesc,@RequestParam(value = "startTime",required = false) Long startTime,
                                                               @RequestParam(value = "endTime",required = false) Long endTime,@RequestParam(value = "senderName",required = false) String senderName,
-                                                              @RequestParam(value = "anchorName",required = false) String anchorName, @RequestParam(value = "payType",required = false) String payType) {
+                                                              @RequestParam(value = "anchorName",required = false) String anchorName, @RequestParam(value = "payType",required = false) String payType,
+                                                              @RequestParam(value = "boxType",required = false) String boxType) {
         log.debug("查询礼物日志 pageSize:{} pageNum :{} roomId:{} giftId:{} senderId:{} startTime:{} endTime:{}", pageSize, pageNum, roomId, giftId, senderId, startTime, endTime);
         Long activityId = StringUtils.isNotBlank(activityDesc) ? ActivityType.fromValue(activityDesc).getType() : null;
         Integer chargePolicy = StringUtils.isNotBlank(payType)  ? ChargePolicyType.fromValue(payType).getType() : null;
@@ -71,6 +72,7 @@ public class GiftLogController {
                                     .totalPayment(d.getTotalPayment())
                                     .totalGems(d.getTotalGems())
                                     .sentTimestamp(d.getSentTimestamp())
+                                    .mark(StringUtils.EMPTY)
                                     .build();
                         }).collect(Collectors.toList());
 
@@ -103,7 +105,8 @@ public class GiftLogController {
                                   @RequestParam(value = "giftId",required = false) String giftId, @RequestParam(value = "senderId",required = false) String senderId,
                                   @RequestParam(value = "activityDesc",required = false) String activityDesc,@RequestParam(value = "startTime",required = false) Long startTime,
                                   @RequestParam(value = "endTime",required = false) Long endTime,@RequestParam(value = "senderName",required = false) String senderName,
-                                  @RequestParam(value = "anchorName",required = false) String anchorName, @RequestParam(value = "payType",required = false) String payType) {
+                                  @RequestParam(value = "anchorName",required = false) String anchorName, @RequestParam(value = "payType",required = false) String payType,
+                                  @RequestParam(value = "boxType",required = false) String boxType) {
         // 创建 Excel 文件并写入响应流
         return Mono.fromCallable(() -> {
             try {
@@ -126,6 +129,7 @@ public class GiftLogController {
                 headerRow.createCell(10).setCellValue("总支付");
                 headerRow.createCell(11).setCellValue("主播总获得宝石");
                 headerRow.createCell(12).setCellValue("送礼时间");
+                headerRow.createCell(13).setCellValue("备注");
 
 
                 Long activityId = StringUtils.isNotBlank(activityDesc) ? ActivityType.fromValue(activityDesc).getType() : null;
@@ -150,6 +154,7 @@ public class GiftLogController {
                                             .totalPayment(d.getTotalPayment())
                                             .totalGems(d.getTotalGems())
                                             .sentTimestamp(d.getSentTimestamp())
+                                            .mark(StringUtils.EMPTY)
                                             .build();
                                 }).collect(Collectors.toList());
                         return giftLogVOList;
@@ -180,6 +185,7 @@ public class GiftLogController {
                     row.createCell(10).setCellValue(log.getTotalPayment());
                     row.createCell(11).setCellValue(log.getTotalGems());
                     row.createCell(12).setCellValue(time);
+                    row.createCell(13).setCellValue(log.getMark());
                 }
 
                 // 将 Excel 文件写入 ByteArrayOutputStream

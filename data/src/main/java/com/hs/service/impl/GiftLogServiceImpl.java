@@ -37,13 +37,12 @@ public class GiftLogServiceImpl implements GiftLogService {
             queryWrapper.eq(StringUtils.isNotBlank(roomId), "room_id", roomId);
             queryWrapper.eq(StringUtils.isNotBlank(giftId), "gift_id", giftId);
             queryWrapper.eq(StringUtils.isNotBlank(senderId), "sender_id", senderId);
-            // queryWrapper.eq(activityId != null, "activity_id", activityId);
+
             if (activityId != null && activityId == ActivityType.OTHER.getType().longValue()) { // 其他
                 queryWrapper.notIn("activity_id", ActivityType.BOX.getType());
             }else{
                 queryWrapper.eq(activityId != null, "activity_id", activityId);
             }
-
             queryWrapper.ge(startTime != null, "sent_timestamp", startTime);
             queryWrapper.le(endTime != null, "sent_timestamp", endTime);
             queryWrapper.like(StringUtils.isNotBlank(senderName), "sender_name", senderName);
@@ -122,7 +121,7 @@ public class GiftLogServiceImpl implements GiftLogService {
         BeanUtils.copyProperties(giftLogBO, giftLog);
         int ret = giftLogMapper.insert(giftLog);
         if (ret != 1) {
-            log.error("insertGiftLog error:{}", giftLogBO);
+            log.error("insertGiftLog error:{}", giftLog);
         }
     }
 

@@ -136,7 +136,7 @@ public class WsClientServiceImpl implements WsClientService {
                                 }
                             }
                         }
-                        log.info("Received message: {}", message);
+                        log.info("平台消息推送: {}", message);
                         try {
                             GiftInfoBo giftInfoBo = JSONUtil.toBean(message, GiftInfoBo.class);
                             GiftLogBO giftbo = GiftLogBO.builder()

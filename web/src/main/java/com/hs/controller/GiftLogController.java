@@ -42,12 +42,12 @@ public class GiftLogController {
 
     @GetMapping("/api/giftlog")
     public Mono<PageResponse<GiftLogVO>> search(@RequestParam(value = "draw") int draw, @RequestParam(value = "pageNum") Integer pageNum,
-                                                              @RequestParam(value = "pageSize") Integer pageSize, @RequestParam(value = "roomId",required = false) String roomId,
-                                                              @RequestParam(value = "giftId",required = false) String giftId, @RequestParam(value = "senderId",required = false) String senderId,
-                                                              @RequestParam(value = "activityDesc",required = false) String activityDesc,@RequestParam(value = "startTime",required = false) Long startTime,
-                                                              @RequestParam(value = "endTime",required = false) Long endTime,@RequestParam(value = "senderName",required = false) String senderName,
-                                                              @RequestParam(value = "anchorName",required = false) String anchorName, @RequestParam(value = "payType",required = false) String payType,
-                                                              @RequestParam(value = "boxType",required = false) String boxType) {
+                                                @RequestParam(value = "pageSize") Integer pageSize, @RequestParam(value = "roomId",required = false) String roomId,
+                                                @RequestParam(value = "giftId",required = false) String giftId, @RequestParam(value = "senderId",required = false) String senderId,
+                                                @RequestParam(value = "activityDesc",required = false) String activityDesc,@RequestParam(value = "startTime",required = false) Long startTime,
+                                                @RequestParam(value = "endTime",required = false) Long endTime,@RequestParam(value = "senderName",required = false) String senderName,
+                                                @RequestParam(value = "anchorName",required = false) String anchorName, @RequestParam(value = "payType",required = false) String payType,
+                                                @RequestParam(value = "boxType",required = false) String boxType) {
         log.debug("查询礼物日志 pageSize:{} pageNum :{} roomId:{} giftId:{} senderId:{} startTime:{} endTime:{}", pageSize, pageNum, roomId, giftId, senderId, startTime, endTime);
         Long activityId = StringUtils.isNotBlank(activityDesc) ? ActivityType.fromValue(activityDesc).getType() : null;
         Integer chargePolicy = StringUtils.isNotBlank(payType)  ? ChargePolicyType.fromValue(payType).getType() : null;
@@ -72,7 +72,7 @@ public class GiftLogController {
                                     .totalPayment(d.getTotalPayment())
                                     .totalGems(d.getTotalGems())
                                     .sentTimestamp(d.getSentTimestamp())
-                                    .mark(StringUtils.EMPTY)
+                                    .mark(d.getGiftId() == 319 ? "高级盒子" : "")
                                     .build();
                         }).collect(Collectors.toList());
 
@@ -86,7 +86,7 @@ public class GiftLogController {
             return new PageResponse<GiftLogVO>(
                     null,
                     0,
-                   0,
+                    0,
                     draw);
         }).exceptionally((e)->{
             log.error("查询礼物日志异常", e);
@@ -154,7 +154,7 @@ public class GiftLogController {
                                             .totalPayment(d.getTotalPayment())
                                             .totalGems(d.getTotalGems())
                                             .sentTimestamp(d.getSentTimestamp())
-                                            .mark(StringUtils.EMPTY)
+                                            .mark(d.getGiftId() == 319 ? "高级盒子" : "")
                                             .build();
                                 }).collect(Collectors.toList());
                         return giftLogVOList;
